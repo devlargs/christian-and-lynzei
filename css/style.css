@@ -32,7 +32,7 @@ License: copyright commercial
 25. Clients Section
 26. Main Footer
 **********************************************/
-@import url("../../../../fonts.googleapis.com/css2@family=Alex+Brush&family=Marcellus&display=swap.css");
+@import url("../fonts.googleapis.com/css2@family=Alex+Brush&family=Marcellus&display=swap.css");
 @import url("animate.css");
 @import url("swiper.min.css");
 @import url("jquery.fancybox.min.css");
