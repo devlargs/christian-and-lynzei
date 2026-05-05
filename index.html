@@ -40,12 +40,10 @@
                 <div class="btn-wrap-two">
                   <div class="btn-part">
                     <a class="theme-btn" href="#rsvp"
-                      onclick="event.preventDefault(); document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});"><span>RSVP</span></a>
+                      onclick="event.preventDefault(); var s=(window.ScrollSmoother&&ScrollSmoother.get&&ScrollSmoother.get()); if(s){s.scrollTo('#rsvp', true, 'top 80px');} else {document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});}"><span>RSVP</span></a>
                   </div>
                 </div>
 
-                <div class="mobile-nav-toggler d-block d-lg-none"><i class="icon lnr-icon-bars"></i>
-                </div>
               </div>
             </div>
 
@@ -154,7 +152,8 @@
                   <div class="date wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms"> June 20, 2026</div>
                   <div class="btn-wrap wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
                     <div class="btn-part">
-                      <a href="page-rsvp.html" class="theme-btn"><span>RSVP</span></a>
+                      <a href="#rsvp" class="theme-btn"
+                        onclick="event.preventDefault(); var s=(window.ScrollSmoother&&ScrollSmoother.get&&ScrollSmoother.get()); if(s){s.scrollTo('#rsvp', true, 'top 80px');} else {document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});}"><span>RSVP</span></a>
                     </div>
                   </div>
                 </div>
