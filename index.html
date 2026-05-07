@@ -420,7 +420,7 @@
         <!-- Bridegroom area end here -->
 
         <!-- Story area start here -->
-        <section class="story-section pt-120 pb-120">
+        <!-- <section class="story-section pt-120 pb-120">
           <div class="shape-box">
             <img class="shape-1 bounce-y" src="images/story/story-shape1_1.png" alt="thumb">
             <img class="shape-2 bounce-y" src="images/story/story-shape1_2.png" alt="thumb">
@@ -556,10 +556,10 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <!-- Gallery area start here -->
-        <section class="gallery-section pt-120 pb-120 overflow-hidden">
+        <!-- <section class="gallery-section pt-120 pb-120 overflow-hidden">
           <div class="container">
             <div class="gallery-items mb-60">
               <div class="gallery-item wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
@@ -610,7 +610,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <!-- Contact area start here -->
         <section id="rsvp" class="contact-section bg-img overflow-hidden"
@@ -886,6 +886,114 @@
   <script src="js/jquery.validate.min.js"></script>
   <script src="js/jquery.form.min.js"></script>
   <script src="js/contact-form-script.js"></script>
+
+  <!-- Scroll to top button -->
+  <style>
+    #scrollToTopBtn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #fff;
+      color: #C78665;
+      border: none;
+      box-shadow: 0 6px 16px rgba(199, 134, 101, 0.25);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity .25s ease, transform .25s ease, background .2s ease, color .2s ease;
+      z-index: 9999;
+      padding: 0;
+    }
+
+    #scrollToTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    #scrollToTopBtn:hover {
+      background: #C78665;
+      color: #fff;
+    }
+
+    #scrollToTopBtn .ring-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    #scrollToTopBtn .ring-bg {
+      stroke: rgba(199, 134, 101, 0.18);
+    }
+
+    #scrollToTopBtn .ring-progress {
+      stroke: #C78665;
+      stroke-linecap: round;
+      transition: stroke-dashoffset .12s linear;
+    }
+
+    #scrollToTopBtn .arrow-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 18px;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <button id="scrollToTopBtn" aria-label="Scroll to top">
+    <svg class="ring-svg" viewBox="0 0 52 52">
+      <circle class="ring-bg" cx="26" cy="26" r="23" fill="none" stroke-width="3"></circle>
+      <circle class="ring-progress" cx="26" cy="26" r="23" fill="none" stroke-width="3" stroke-dasharray="144.5"
+        stroke-dashoffset="144.5"></circle>
+    </svg>
+    <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 14 12 8 18 14"></polyline>
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById('scrollToTopBtn');
+      var progress = btn.querySelector('.ring-progress');
+      var CIRC = 2 * Math.PI * 23;
+      progress.setAttribute('stroke-dasharray', CIRC);
+      progress.setAttribute('stroke-dashoffset', CIRC);
+      function getSmoother() { return (window.ScrollSmoother && ScrollSmoother.get) ? ScrollSmoother.get() : null; }
+      function scrollMetrics() {
+        var s = getSmoother();
+        if (s) {
+          return { top: s.scrollTop(), max: Math.max(1, ScrollTrigger.maxScroll(window)) };
+        }
+        var doc = document.documentElement;
+        return {
+          top: window.pageYOffset || doc.scrollTop,
+          max: Math.max(1, (doc.scrollHeight || document.body.scrollHeight) - window.innerHeight)
+        };
+      }
+      function update() {
+        var m = scrollMetrics();
+        var ratio = Math.min(1, Math.max(0, m.top / m.max));
+        progress.style.strokeDashoffset = (CIRC * (1 - ratio)).toFixed(2);
+        if (m.top > 300) btn.classList.add('show');
+        else btn.classList.remove('show');
+      }
+      btn.addEventListener('click', function () {
+        var s = getSmoother();
+        if (s) s.scrollTo(0, true);
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', update, { passive: true });
+      setInterval(update, 80);
+      update();
+    })();
+  </script>
 </body>
 
 </html>

@@ -38,8 +38,19 @@
   /* ==========================================================
      ✅ Common Animation Function
   ========================================================== */
+  var isMobile = device_width <= 991;
   function gsapFadeMove(selector, options) {
     gsap.utils.toArray(selector).forEach(el => {
+      if (isMobile) {
+        gsap.from(el, {
+          opacity: 0,
+          ...options,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 92%", toggleActions: "play none none none" }
+        });
+        return;
+      }
       gsap.timeline({
         scrollTrigger: {
           trigger: el,

@@ -1,3 +1,12 @@
+@media (max-width: 991px) {
+  .wow.animated, .animated {
+    animation-duration: 0.5s !important;
+    -webkit-animation-duration: 0.5s !important;
+    animation-delay: 0s !important;
+    -webkit-animation-delay: 0s !important;
+  }
+}
+
 /* Weddingo | Wedding & Event HTML Template
 
 Template Name: Weddingo
@@ -32,7 +41,20 @@ License: copyright commercial
 25. Clients Section
 26. Main Footer
 **********************************************/
-@import url("../fonts.googleapis.com/css2@family=Alex+Brush&family=Marcellus&display=swap.css");
+@font-face {
+  font-family: 'Alex Brush';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts.gstatic.com/s/alexbrush/v23/SZc83FzrJKuqFbwMKk6EtUI.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Marcellus';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts.gstatic.com/s/marcellus/v14/wEO_EBrOk8hQLDvIAF8FUQ.ttf") format('truetype');
+}
 @import url("animate.css");
 @import url("swiper.min.css");
 @import url("jquery.fancybox.min.css");
