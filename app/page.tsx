@@ -59,24 +59,15 @@ const ADDITIONAL_SECTIONS: PartySection[] = [
   },
   {
     title: "Candle Sponsors",
-    members: [
-      { name: "Gem Avy Montalla" },
-      { name: "Ana Marimar Francisco" },
-    ],
+    members: [{ name: "Gem Avy Montalla" }, { name: "Ana Marimar Francisco" }],
   },
   {
     title: "Veil Sponsors",
-    members: [
-      { name: "Paul Fruelda" },
-      { name: "Yvonne Ivy Magat" },
-    ],
+    members: [{ name: "Paul Fruelda" }, { name: "Yvonne Ivy Magat" }],
   },
   {
     title: "Cord Sponsors",
-    members: [
-      { name: "Mark Alglo Villanueva" },
-      { name: "Erica Mae Santos" },
-    ],
+    members: [{ name: "Mark Alglo Villanueva" }, { name: "Erica Mae Santos" }],
   },
   {
     title: "Ring Bearer",
@@ -114,21 +105,53 @@ function PartyList({ members }: { members: PartyMember[] }) {
 }
 
 function PartySectionBlock({ section }: { section: PartySection }) {
+  const useGrid = section.members.length > 4;
   return (
     <div className="col-12 col-md-11 col-lg-10 text-center mb-4">
+      <span
+        className="divider divider-floral d-block mb-3 mx-auto"
+        style={{ opacity: 0.7 }}
+      ></span>
       <h3 className="font-alt fs-3 text-primary mb-3">{section.title}</h3>
-      <div className="row justify-content-center gx-2">
-        {section.members.map((m, i) => (
-          <div key={i} className="col-6 col-md-4 col-lg-3 mb-2">
-            <h3 className="font-alt fs-5 m-0">{m.name}</h3>
-            {m.role && (
-              <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                {m.role}
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
+      {useGrid ? (
+        <div
+          className="mx-auto"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            columnGap: "2rem",
+            rowGap: "0.75rem",
+            maxWidth: 720,
+          }}
+        >
+          {section.members.map((m, i) => (
+            <div key={i} className="text-center">
+              <h3 className="font-alt fs-5 m-0">{m.name}</h3>
+              {m.role && (
+                <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
+                  {m.role}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div
+          className="d-flex flex-wrap justify-content-center"
+          style={{ columnGap: "3rem", rowGap: "0.75rem" }}
+        >
+          {section.members.map((m, i) => (
+            <div key={i} className="text-center">
+              <h3 className="font-alt fs-5 m-0">{m.name}</h3>
+              {m.role && (
+                <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
+                  {m.role}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -548,8 +571,35 @@ export default function Home() {
       </section>
 
       {/* Wedding Party */}
-      <section id="wedding-party">
-        <div className="container">
+      <section id="wedding-party" className="position-relative">
+        <img
+          src="/img/shape-particle.svg"
+          alt=""
+          aria-hidden="true"
+          className="position-absolute z-0 d-none d-md-block"
+          style={{ right: 20, top: 40, width: 200, opacity: 0.55 }}
+        />
+        <img
+          src="/img/shape-wave-top-left-1.svg"
+          alt=""
+          aria-hidden="true"
+          className="position-absolute start-0 z-0 d-none d-lg-block"
+          style={{ top: "30%", width: 240, opacity: 0.45 }}
+        />
+        <img
+          src="/img/shape-particle.svg"
+          alt=""
+          aria-hidden="true"
+          className="position-absolute z-0 d-none d-md-block"
+          style={{
+            left: "50%",
+            top: "55%",
+            width: 150,
+            opacity: 0.35,
+            transform: "translateX(-50%)",
+          }}
+        />
+        <div className="container position-relative z-2">
           <div className="row mb-5 pb-lg-5">
             <div className="col-12 position-relative text-center z-2">
               <h2 className="font-alt fs-1 mb-3">The Wedding Party</h2>
