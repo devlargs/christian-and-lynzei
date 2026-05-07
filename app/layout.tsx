@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ScrollToTop from "./ScrollToTop";
 
 const description =
   "Join us in celebrating the wedding of Christian & Lynzei on June 20, 2026 at San Roque Chapel, Olongapo City.";
@@ -55,10 +56,92 @@ export default function RootLayout({
         <link rel="preload" href="/css/style.min.css" as="style" />
         <link rel="preload" href="/js/script.min.js" as="script" />
         <link rel="stylesheet" href="/css/style.min.css" />
-        <style>{`section[id] { scroll-margin-top: 100px; }`}</style>
+        <style>{`
+          section[id] { scroll-margin-top: 100px; }
+
+          .navbar-toggler {
+            background-image: none !important;
+            padding: 0.85rem 0.85rem !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+          }
+          .navbar-toggler .navbar-toggler-anim {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+          }
+          .navbar-toggler .navbar-toggler-anim > span {
+            display: block;
+            width: 100%;
+            height: 2.5px;
+            background-color: #fff;
+            border-radius: 2px;
+            transform-origin: center;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+          }
+          .navbar-toggler[aria-expanded="true"] .navbar-toggler-anim > span:nth-child(1) {
+            transform: translateY(7.75px) rotate(45deg);
+          }
+          .navbar-toggler[aria-expanded="true"] .navbar-toggler-anim > span:nth-child(2) {
+            opacity: 0;
+          }
+          .navbar-toggler[aria-expanded="true"] .navbar-toggler-anim > span:nth-child(3) {
+            transform: translateY(-7.75px) rotate(-45deg);
+          }
+
+          .scroll-to-top {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            border: none;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            cursor: pointer;
+            z-index: 1040;
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .scroll-to-top[data-visible="true"] {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+          }
+          .scroll-to-top svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+          }
+          .scroll-to-top-arrow {
+            position: relative;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #B46A48;
+            border-left: 2px solid #B46A48;
+            transform: translateY(2px) rotate(45deg);
+          }
+          .scroll-to-top:hover .scroll-to-top-arrow {
+            transform: translateY(0) rotate(45deg);
+            transition: transform 0.2s ease;
+          }
+        `}</style>
       </head>
       <body id="page-top" className="h-100 overflow-x-hidden w-100">
         {children}
+        <ScrollToTop />
         <Script src="/js/script.min.js" strategy="beforeInteractive" />
         <Script id="nav-close-on-click" strategy="afterInteractive">{`
           document.querySelectorAll('#navbar .nav-link').forEach(function (link) {
