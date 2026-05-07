@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-100 w-100">
+    <html lang="en" className="w-100">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" href="/css/style.min.css" as="style" />
@@ -149,7 +149,7 @@ export default function RootLayout({
 
         `}</style>
       </head>
-      <body id="page-top" className="h-100 overflow-x-hidden w-100">
+      <body id="page-top" className="overflow-x-hidden w-100">
         {children}
         <ScrollToTop />
         <Script src="/js/script.min.js" strategy="beforeInteractive" />
