@@ -471,22 +471,20 @@ export default function Home() {
               <div className="position-relative">
                 <div className="d-flex flex-column h-100 justify-content-between position-absolute start-0 text-center top-0 w-100">
                   <div className="mt-5 px-4">
-                    <h3 className="font-alt">The Reception</h3>
+                    <h3 className="font-alt">The Ceremony</h3>
                     <span className="divider divider-heart mb-3 mb-sm-4"></span>
                     <p className="mb-1 text-body-secondary">
                       Saturday, June 20th, 2026
                     </p>
-                    <p className="text-body-secondary">08:00PM - 10:00PM</p>
+                    <p className="text-body-secondary">1:00 in the Afternoon</p>
                     <p className="mb-1 text-body-secondary">San Roque Chapel</p>
                     <p className="mb-sm-4 text-body-secondary">
-                      1 Dewey Ave, Olongapo City, 2200 Zambales
+                      Dewey Ave, Subic Bay Freeport Zone
                     </p>
                     <span className="divider divider-floral d-none d-sm-block"></span>
                   </div>
                   <a
                     href="https://maps.app.goo.gl/5iiT6ZgP5Lmrds1SA"
-                    target="_blank"
-                    rel="noreferrer"
                     className="btn mx-auto"
                   >
                     <span>See Location</span>
@@ -504,52 +502,28 @@ export default function Home() {
               <div className="position-relative">
                 <div className="d-flex flex-column h-100 justify-content-between position-absolute start-0 text-center top-0 w-100">
                   <div className="mt-5 px-4">
-                    <h3 className="font-alt">The Ceremony</h3>
+                    <h3 className="font-alt">The Reception</h3>
                     <span className="divider divider-heart mb-3 mb-sm-4"></span>
+
                     <p className="mb-1 text-body-secondary">
-                      Saturday, June 20th, 2026
+                      The Aurora Subic Hotel
                     </p>
-                    <p className="text-body-secondary">08:00PM - 10:00PM</p>
-                    <p className="mb-1 text-body-secondary">San to?</p>
-                    <p className="mb-sm-4 text-body-secondary">2200 Zambales</p>
+                    <p className="mb-sm-4 text-body-secondary">
+                      Canal Road Corner, Labitan St. SBFZ
+                    </p>
                     <span className="divider divider-floral d-none d-sm-block"></span>
                   </div>
-                  <a href="#" className="btn mx-auto">
+                  <a
+                    href="https://maps.app.goo.gl/1gnN3QTr5spdra9w7"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn mx-auto"
+                  >
                     <span>See Location</span>
                   </a>
                 </div>
                 <img
                   src="/img/shape-rect-wedding-event-2.svg"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-            </div>
-
-            <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
-              <div className="position-relative">
-                <div className="d-flex flex-column h-100 justify-content-between position-absolute start-0 text-center top-0 w-100">
-                  <div className="mt-5 px-4">
-                    <h3 className="font-alt">After Party</h3>
-                    <span className="divider divider-heart mb-3 mb-sm-4"></span>
-                    <p className="mb-1 text-body-secondary">
-                      Sunday, July 12th, 2026
-                    </p>
-                    <p className="text-body-secondary">08:00PM - 10:00PM</p>
-                    <p className="mb-1 text-body-secondary">
-                      The Mayflower Hotel
-                    </p>
-                    <p className="mb-sm-4 text-body-secondary">
-                      620 11th Street NW, Washington, DC
-                    </p>
-                    <span className="divider divider-floral d-none d-sm-block"></span>
-                  </div>
-                  <a href="#" className="btn mx-auto">
-                    <span>See Location</span>
-                  </a>
-                </div>
-                <img
-                  src="/img/shape-rect-wedding-event-1.svg"
                   alt=""
                   className="img-fluid"
                 />
