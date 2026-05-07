@@ -2,6 +2,38 @@
 import RsvpForm from "./RsvpForm";
 
 console.log("trigger deployment");
+
+type PartyMember = { name: string; role: string };
+
+const BRIDE_PARTY: PartyMember[] = [
+  { name: "Unknown", role: "Maid of Honor" },
+  { name: "Unknown", role: "Maid of Honor" },
+  { name: "Unknown", role: "Bridesmaid" },
+  { name: "Unknown", role: "Bridesmaid" },
+];
+
+const GROOM_PARTY: PartyMember[] = [
+  { name: "Jeremy Saing", role: "Best Man" },
+  { name: "Ralph Largo", role: "Best Man" },
+  { name: "Gem Avy Montalla", role: "Groomsman" },
+  { name: "Kuya Jer", role: "Groomsman" },
+];
+
+function PartyList({ members }: { members: PartyMember[] }) {
+  return (
+    <ul className="list-unstyled">
+      {members.map((m, i) => (
+        <li key={i} className="mb-5">
+          <h3 className="font-alt">{m.name}</h3>
+          <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
+            {m.role}
+          </p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -470,32 +502,7 @@ export default function Home() {
                 The Bride
               </p>
 
-              <ul className="list-unstyled">
-                <li className="mb-5">
-                  <h3 className="font-alt">Unknown</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Maid of Honor
-                  </p>
-                </li>
-                <li className="mb-5">
-                  <h3 className="font-alt">Unknown</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Maid of Honor
-                  </p>
-                </li>
-                <li className="mb-5">
-                  <h3 className="font-alt">Unknown</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Bridesmaid
-                  </p>
-                </li>
-                <li className="mb-5">
-                  <h3 className="font-alt">Unknown</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Bridesmaid
-                  </p>
-                </li>
-              </ul>
+              <PartyList members={BRIDE_PARTY} />
             </div>
 
             <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 text-center">
@@ -533,33 +540,7 @@ export default function Home() {
                 The Groom
               </p>
 
-              <ul className="list-unstyled">
-                <li className="mb-5">
-                  <h3 className="font-alt">Jeremy Saing</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Best Man
-                  </p>
-                </li>
-                <li className="mb-5">
-                  <h3 className="font-alt">Ralph Largo</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Best Man
-                  </p>
-                </li>
-
-                <li className="mb-5">
-                  <h3 className="font-alt">Gem Avy Montalla</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Groomsman
-                  </p>
-                </li>
-                <li className="mb-5">
-                  <h3 className="font-alt">Kuya Jer</h3>
-                  <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-                    Groomsman
-                  </p>
-                </li>
-              </ul>
+              <PartyList members={GROOM_PARTY} />
             </div>
           </div>
         </div>
