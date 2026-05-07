@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import ScrollToTop from "./ScrollToTop";
+import FadeInOnScroll from "./FadeInOnScroll";
 
 const description =
   "Join us in celebrating the wedding of Christian & Lynzei on June 20, 2026 at San Roque Chapel, Olongapo City.";
@@ -58,6 +59,25 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/style.min.css" />
         <style>{`
           section[id] { scroll-margin-top: 100px; }
+
+          .fade-in-section {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            will-change: opacity, transform;
+          }
+          .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .fade-in-section,
+            .fade-in-section.is-visible {
+              opacity: 1 !important;
+              transform: none !important;
+              transition: none !important;
+            }
+          }
 
           .navbar-toggler {
             background-image: none !important;
@@ -152,7 +172,8 @@ export default function RootLayout({
       <body id="page-top" className="overflow-x-hidden w-100">
         {children}
         <ScrollToTop />
-        <Script src="/js/script.min.js" strategy="beforeInteractive" />
+        <FadeInOnScroll />
+        <Script src="/js/script.min.js" strategy="afterInteractive" />
         <Script id="nav-close-on-click" strategy="afterInteractive">{`
           document.querySelectorAll('#navbar .nav-link').forEach(function (link) {
             link.addEventListener('click', function () {

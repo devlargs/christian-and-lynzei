@@ -118,8 +118,8 @@ function PartySectionBlock({ section }: { section: PartySection }) {
           className="mx-auto"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            columnGap: "2rem",
+            gridTemplateColumns: "1fr 1fr",
+            columnGap: "1rem",
             rowGap: "0.75rem",
             maxWidth: 720,
           }}
@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* The Couple */}
-      <section id="the-couple">
+      <section id="the-couple" className="fade-in-section">
         <div className="container position-relative z-2">
           <div className="row mb-5 pb-lg-5">
             <div className="col-12 position-relative text-center z-2">
@@ -453,7 +453,7 @@ export default function Home() {
       </section>
 
       {/* Wedding Event */}
-      <section id="wedding-event" className="bg-secondary-2">
+      <section id="wedding-event" className="bg-secondary-2 fade-in-section">
         <div className="container position-relative z-2">
           <div className="row mb-5 pb-lg-5">
             <div className="col-12 position-relative text-center z-2">
@@ -506,6 +506,10 @@ export default function Home() {
                     <span className="divider divider-heart mb-3 mb-sm-4"></span>
 
                     <p className="mb-1 text-body-secondary">
+                      After Ceremony <br />
+                      <br />
+                    </p>
+                    <p className="mb-1 text-body-secondary">
                       The Aurora Subic Hotel
                     </p>
                     <p className="mb-sm-4 text-body-secondary">
@@ -545,7 +549,7 @@ export default function Home() {
       </section>
 
       {/* Wedding Party */}
-      <section id="wedding-party" className="position-relative">
+      <section id="wedding-party" className="position-relative fade-in-section">
         <img
           src="/img/shape-particle.svg"
           alt=""
@@ -678,7 +682,7 @@ export default function Home() {
       </section>
 
       {/* Photos */}
-      <section id="photos" className="border-top">
+      <section id="photos" className="border-top fade-in-section">
         <div className="container">
           <div className="row mb-5 pb-lg-5">
             <div className="col-12 position-relative text-center z-2">
@@ -712,7 +716,7 @@ export default function Home() {
       {/* Wedding Gifts */}
       <section
         id="wedding-gifts"
-        className="bg-holder"
+        className="bg-holder fade-in-section"
         data-bg-image="/images/bg-wedding-gifts.jpg"
       >
         <div className="container">
@@ -742,7 +746,7 @@ export default function Home() {
       </section>
 
       {/* RSVP */}
-      <section id="rsvp">
+      <section id="rsvp" className="fade-in-section">
         <div className="container">
           <div className="row mb-5 pb-lg-5">
             <div className="col-12 position-relative text-center z-2">
