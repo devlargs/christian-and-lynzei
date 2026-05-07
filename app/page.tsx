@@ -724,8 +724,8 @@ export default function Home() {
                   <span className="divider divider-heart mb-4"></span>
                   <div className="mb-2 text-body-secondary">
                     <p>
-                      You don&apos;t need to bring us gifts &mdash; your company
-                      at our wedding is enough!
+                      Gifts are not expected but for those who wish, we
+                      graciously prefer monetary gifts.
                     </p>
                   </div>
                   <span className="divider divider-floral d-none d-xl-block"></span>
