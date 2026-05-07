@@ -146,6 +146,7 @@ export default function RootLayout({
             transform: translateY(0) rotate(45deg);
             transition: transform 0.2s ease;
           }
+
         `}</style>
       </head>
       <body id="page-top" className="h-100 overflow-x-hidden w-100">

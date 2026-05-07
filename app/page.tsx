@@ -1,36 +1,135 @@
 /* eslint-disable @next/next/no-img-element */
 import RsvpForm from "./RsvpForm";
 
-console.log("trigger deployment");
-
-type PartyMember = { name: string; role: string };
+type PartyMember = { name: string; role?: string };
+type PartySection = { title: string; members: PartyMember[] };
 
 const BRIDE_PARTY: PartyMember[] = [
-  { name: "Unknown", role: "Maid of Honor" },
-  { name: "Unknown", role: "Maid of Honor" },
-  { name: "Unknown", role: "Bridesmaid" },
-  { name: "Unknown", role: "Bridesmaid" },
+  { name: "Kimberly Beromilla", role: "Maid of Honor" },
+  { name: "Nicole Anne Granada", role: "Maid of Honor" },
+  { name: "Leira Manalansan", role: "Bridesmaid" },
 ];
 
 const GROOM_PARTY: PartyMember[] = [
   { name: "Jeremy Saing", role: "Best Man" },
   { name: "Ralph Largo", role: "Best Man" },
-  { name: "Gem Avy Montalla", role: "Groomsman" },
-  { name: "Kuya Jer", role: "Groomsman" },
+  { name: "Christian Jade Santos", role: "Groomsman" },
+];
+
+// Add or remove sections here — each one renders as a centered, titled block.
+const ADDITIONAL_SECTIONS: PartySection[] = [
+  {
+    title: "Mother of the Groom",
+    members: [{ name: "Mrs. Susan M. Tacazon" }],
+  },
+  {
+    title: "Parents of the Bride",
+    members: [
+      { name: "Mr. Teodoro S. Santos Jr." },
+      { name: "Mrs. Gilda M. Santos" },
+    ],
+  },
+  {
+    title: "Principal Sponsors",
+    members: [
+      { name: "Mr. Rainier Vidal" },
+      { name: "Mrs. Nancy Vidal" },
+      { name: "Mr. Norbert Lavarias" },
+      { name: "Ms. Felegina Bugay" },
+      { name: "Mr. Memer Tatel" },
+      { name: "Mrs. Sarah Tatel" },
+      { name: "Mr. Roberto Estrella" },
+      { name: "Mrs. Grace Estrella" },
+      { name: "Mr. Michael Magat" },
+      { name: "Mrs. Myrna Magat" },
+      { name: "Mr. Robert Oli" },
+      { name: "Mrs. Emerlina Oli" },
+      { name: "Mr. Alfredo Santos" },
+      { name: "Mrs. Eva Unay" },
+      { name: "Mr. Francisco Garcia" },
+      { name: "Mrs. Elvira Coquilla" },
+      { name: "Mr. Ariel Manalansan" },
+      { name: "Mrs. Elma Española" },
+      { name: "Mr. Rolando Reyes" },
+      { name: "Mrs. Rebecca Soliman" },
+      { name: "Mrs. Loida Beltran" },
+      { name: "Mrs. Ruth Rada" },
+      { name: "Mrs. Elsie Cabral" },
+    ],
+  },
+  {
+    title: "Candle Sponsors",
+    members: [
+      { name: "Gem Avy Montalla" },
+      { name: "Ana Marimar Francisco" },
+    ],
+  },
+  {
+    title: "Veil Sponsors",
+    members: [
+      { name: "Paul Fruelda" },
+      { name: "Yvonne Ivy Magat" },
+    ],
+  },
+  {
+    title: "Cord Sponsors",
+    members: [
+      { name: "Mark Alglo Villanueva" },
+      { name: "Erica Mae Santos" },
+    ],
+  },
+  {
+    title: "Ring Bearer",
+    members: [{ name: "Ramone Ymmanuel Espinorio" }],
+  },
+  {
+    title: "Bible Bearer",
+    members: [{ name: "Ram Felix Valencia" }],
+  },
+  {
+    title: "Coin Bearer",
+    members: [{ name: "Giann Miguel Valencia" }],
+  },
+  {
+    title: "Flower Girl",
+    members: [{ name: "Mireya Yzha Espinorio" }],
+  },
 ];
 
 function PartyList({ members }: { members: PartyMember[] }) {
   return (
     <ul className="list-unstyled">
       {members.map((m, i) => (
-        <li key={i} className="mb-5">
+        <li key={i} className="mb-3">
           <h3 className="font-alt">{m.name}</h3>
-          <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
-            {m.role}
-          </p>
+          {m.role && (
+            <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
+              {m.role}
+            </p>
+          )}
         </li>
       ))}
     </ul>
+  );
+}
+
+function PartySectionBlock({ section }: { section: PartySection }) {
+  return (
+    <div className="col-12 col-md-11 col-lg-10 text-center mb-4">
+      <h3 className="font-alt fs-3 text-primary mb-3">{section.title}</h3>
+      <div className="row justify-content-center gx-2">
+        {section.members.map((m, i) => (
+          <div key={i} className="col-6 col-md-4 col-lg-3 mb-2">
+            <h3 className="font-alt fs-5 m-0">{m.name}</h3>
+            {m.role && (
+              <p className="fs-10 fw-bold ls-2 m-0 text-primary-2 text-uppercase">
+                {m.role}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -543,6 +642,14 @@ export default function Home() {
               <PartyList members={GROOM_PARTY} />
             </div>
           </div>
+
+          {ADDITIONAL_SECTIONS.length > 0 && (
+            <div className="row justify-content-center mt-4">
+              {ADDITIONAL_SECTIONS.map((section, i) => (
+                <PartySectionBlock key={i} section={section} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
