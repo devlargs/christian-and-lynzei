@@ -6,8 +6,15 @@ import FadeInOnScroll from "./FadeInOnScroll";
 const description =
   "Join us in celebrating the wedding of Christian & Lynzei on June 20, 2026 at San Roque Chapel, Olongapo City.";
 
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  title: "Christian & Lynzei Wedding",
+  metadataBase: new URL(rawSiteUrl),
+  title: "Christian & Lynzei's Wedding",
   description,
   keywords: [
     "Christian and Lynzei",
@@ -26,20 +33,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Christian & Lynzei Wedding",
+    siteName: "Christian & Lynzei's Wedding",
+    title: "Christian & Lynzei's Wedding",
     description,
+    url: "/",
+    locale: "en_US",
     images: [
       {
         url: "/images/the-couple-hero.jpg",
         width: 1200,
         height: 630,
         alt: "Christian & Lynzei",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christian & Lynzei Wedding",
+    title: "Christian & Lynzei's Wedding",
     description,
     images: ["/images/the-couple-hero.jpg"],
   },
