@@ -15,6 +15,11 @@
 
     <!-- Required CSS files -->
     <link href="css/style.min.css" rel="stylesheet">
+    <style>
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -673,6 +678,16 @@
 
     <!-- Required JS files -->
     <script src="js/script.min.js"></script>
+    <script>
+        document.querySelectorAll('#navbar .nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                var navbar = document.getElementById('navbar');
+                if (navbar.classList.contains('show')) {
+                    document.querySelector('.navbar-toggler').click();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
