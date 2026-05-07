@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import RsvpForm from "./RsvpForm";
 
+console.log("trigger deployment");
 export default function Home() {
   return (
     <>
