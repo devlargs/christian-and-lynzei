@@ -62,9 +62,18 @@ export default function RootLayout({
           .navbar-toggler {
             background-image: none !important;
             padding: 0.85rem 0.85rem !important;
-            display: inline-flex !important;
             align-items: center;
             justify-content: center;
+          }
+          @media (max-width: 991.98px) {
+            .navbar-toggler {
+              display: inline-flex !important;
+            }
+          }
+          @media (min-width: 992px) {
+            .navbar-expand-lg .navbar-toggler {
+              display: none !important;
+            }
           }
           .navbar-toggler .navbar-toggler-anim {
             display: flex;
