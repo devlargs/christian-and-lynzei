@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import RsvpForm from "./RsvpForm";
+
 export default function Home() {
   return (
     <>
@@ -647,49 +649,7 @@ export default function Home() {
                   Are You Attending?
                 </h3>
 
-                <form
-                  action="https://demo.lucky-roo.com/loise-v1.1/rsvp.php"
-                  method="post"
-                  className="bg-white p-4 position-relative"
-                >
-                  <div className="row">
-                    <div className="col-12 mb-3 position-relative">
-                      <input
-                        type="text"
-                        name="rsvp_name"
-                        id="rsvp-name"
-                        data-rules="required"
-                        className="border-0 border-bottom p-3 w-100"
-                        placeholder="Your Full Name"
-                      />
-                    </div>
-                    <div className="col-12 mb-3 position-relative">
-                      <input
-                        type="email"
-                        name="rsvp_email"
-                        id="rsvp-email"
-                        data-rules="email"
-                        className="border-0 border-bottom p-3 w-100"
-                        placeholder="Your Email Address"
-                      />
-                    </div>
-                    <div className="col-12">
-                      <button type="submit" className="btn mx-auto">
-                        <span>Submit</span>
-                      </button>
-                    </div>
-                  </div>
-                  <img
-                    src="/img/shape-heart-balloon-mrs.svg"
-                    alt=""
-                    className="shape-heart-balloon bottom-0 d-none d-sm-block position-absolute start-0 z-2"
-                  />
-                  <img
-                    src="/img/shape-heart-balloon-mr.svg"
-                    alt=""
-                    className="shape-heart-balloon bottom-0 d-none d-sm-block end-0 position-absolute translate-middle-y z-2"
-                  />
-                </form>
+                <RsvpForm />
               </div>
             </div>
 
