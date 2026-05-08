@@ -180,7 +180,7 @@ export default function Home() {
               strokeLinecap="round"
               strokeWidth={3.5}
               stroke="#000000"
-              fill="#DDB796"
+              fill="#C97D8A"
             />
             <path
               className="anim-heart-sm"
@@ -190,7 +190,7 @@ export default function Home() {
               strokeLinecap="round"
               strokeWidth={3.5}
               stroke="#000000"
-              fill="#B46A48"
+              fill="#722F37"
             />
           </g>
         </svg>
@@ -839,7 +839,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="fw-bold text-decoration-underline"
-            style={{ color: "#7A3F23" }}
+            style={{ color: "#4A1E25" }}
           >
             Largs
           </a>

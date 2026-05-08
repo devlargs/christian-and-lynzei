@@ -46,7 +46,7 @@ export default function ScrollToTop() {
           cy={SIZE / 2}
           r={RADIUS}
           fill="none"
-          stroke="rgba(180, 106, 72, 0.2)"
+          stroke="rgba(114, 47, 55, 0.2)"
           strokeWidth={STROKE}
         />
         <circle
@@ -54,7 +54,7 @@ export default function ScrollToTop() {
           cy={SIZE / 2}
           r={RADIUS}
           fill="none"
-          stroke="#B46A48"
+          stroke="#722F37"
           strokeWidth={STROKE}
           strokeLinecap="round"
           strokeDasharray={CIRC}

@@ -181,8 +181,8 @@ export default function RootLayout({
             display: block;
             width: 10px;
             height: 10px;
-            border-top: 2px solid #B46A48;
-            border-left: 2px solid #B46A48;
+            border-top: 2px solid #722F37;
+            border-left: 2px solid #722F37;
             transform: translateY(2px) rotate(45deg);
           }
           .scroll-to-top:hover .scroll-to-top-arrow {
