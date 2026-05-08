@@ -61,6 +61,12 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
   const enableGA = process.env.NEXT_PUBLIC_NODE_ENV === "production" && !!gaId;
 
+  console.log({
+    gaId,
+    enableGA,
+    environment: process.env.NEXT_PUBLIC_NODE_ENV,
+  });
+
   return (
     <html lang="en" className="w-100">
       <head>
