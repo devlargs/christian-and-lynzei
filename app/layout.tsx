@@ -82,12 +82,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;600;700&display=swap"
         />
-        <link
-          rel="preload"
-          as="image"
-          href={`${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`}
-          fetchPriority="high"
-        />
         <link rel="preload" href="/css/style.min.css" as="style" />
         <link rel="preload" href="/js/script.min.js" as="script" />
         <link rel="stylesheet" href="/css/style.min.css" />

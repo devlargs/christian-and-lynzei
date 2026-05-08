@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { CLOUDFRONT_URL } from "@/constants/cloudfront";
+import { CLOUDFRONT_URL, PHOTO_GALLERY_IMAGES } from "@/constants/cloudfront";
 import RsvpForm from "./RsvpForm";
 import Image from "next/image";
 
@@ -202,10 +202,10 @@ export default function Home() {
         <nav className="navbar navbar-expand-lg p-0">
           <div className="container align-items-center">
             <div className="navbar-brand align-items-center d-flex d-lg-none me-0">
-              <img
+              <Image
                 width={187}
                 height={73}
-                src="/img/navbar-brand-mobile.png"
+                src={`${CLOUDFRONT_URL}/117dcec2-bfe2-4b9f-b438-8bfd3cf88b0e.png`}
                 alt="Logo"
               />
             </div>
@@ -328,10 +328,12 @@ export default function Home() {
                         <Image
                           src={`${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`}
                           alt="The Couple"
-                          className="anim-zoom"
+                          // className="anim-zoom"
                           width={500}
                           height={685}
+                          priority
                           loading="eager"
+                          fetchPriority="high"
                         />
                       </foreignObject>
                     </svg>
@@ -716,29 +718,41 @@ export default function Home() {
           </div>
 
           <div className="row gallery-grid">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-              <div key={n} className="col-6 col-lg-3 mb-4">
-                <figure>
-                  <a href={`/images/photo-${n}.jpg`} data-gall="photos">
-                    <img
-                      src={`/images/photo-${n}.jpg`}
-                      alt=""
-                      className="img-fluid"
-                    />
-                  </a>
-                </figure>
-              </div>
-            ))}
+            {PHOTO_GALLERY_IMAGES.map((file) => {
+              const url = `${CLOUDFRONT_URL}/${file}`;
+              return (
+                <div key={file} className="col-6 col-lg-3 mb-4">
+                  <figure>
+                    <a href={url} data-gall="photos">
+                      <Image
+                        src={url}
+                        alt=""
+                        width={800}
+                        height={800}
+                        sizes="(min-width: 992px) 25vw, 50vw"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </a>
+                  </figure>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Wedding Gifts */}
-      <section
-        id="wedding-gifts"
-        className="bg-holder fade-in-section"
-        data-bg-image={`${CLOUDFRONT_URL}/eff75bd5-5d00-46af-aba9-78c5f7f97070.jpg`}
-      >
+      <section id="wedding-gifts" className="fade-in-section position-relative">
+        <Image
+          src={`${CLOUDFRONT_URL}/eff75bd5-5d00-46af-aba9-78c5f7f97070.jpg`}
+          alt=""
+          fill
+          sizes="100vw"
+          aria-hidden="true"
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{ objectFit: "cover", zIndex: -1 }}
+        />
         <div className="container">
           <div className="row align-items-center justify-content-center justify-content-lg-start">
             <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
