@@ -503,6 +503,7 @@ export default function Home() {
                     <a
                       href="https://maps.app.goo.gl/5iiT6ZgP5Lmrds1SA"
                       className="btn mx-auto"
+                      target="_blank"
                     >
                       <span>See Location</span>
                     </a>
