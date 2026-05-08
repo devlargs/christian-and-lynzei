@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ScrollToTop from "./ScrollToTop";
 import FadeInOnScroll from "./FadeInOnScroll";
+import { CLOUDFRONT_URL } from "@/constants/cloudfront";
 
+const title = "Christian & Lynzei's Wedding — June 20, 2026 in Olongapo";
 const description =
-  "Join us in celebrating the wedding of Christian & Lynzei on June 20, 2026 at San Roque Chapel, Olongapo City.";
+  "Join us in celebrating the wedding of Christian & Lynzei on Saturday, June 20, 2026 at San Roque Chapel, Olongapo City. RSVP today!";
 
 const rawSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -14,7 +16,7 @@ const rawSiteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(rawSiteUrl),
-  title: "Christian & Lynzei's Wedding",
+  title,
   description,
   keywords: [
     "Christian and Lynzei",
@@ -34,13 +36,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Christian & Lynzei's Wedding",
-    title: "Christian & Lynzei's Wedding",
+    title,
     description,
     url: "/",
     locale: "en_US",
     images: [
       {
-        url: "/images/the-couple-hero.jpg",
+        url: `${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`,
         width: 1200,
         height: 630,
         alt: "Christian & Lynzei",
@@ -50,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christian & Lynzei's Wedding",
+    title,
     description,
-    images: ["/images/the-couple-hero.jpg"],
+    images: [`${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`],
   },
 };
 
@@ -65,6 +67,27 @@ export default function RootLayout({
     <html lang="en" className="w-100">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;600;700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;600;700&display=swap"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href={`${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`}
+          fetchPriority="high"
+        />
         <link rel="preload" href="/css/style.min.css" as="style" />
         <link rel="preload" href="/js/script.min.js" as="script" />
         <link rel="stylesheet" href="/css/style.min.css" />

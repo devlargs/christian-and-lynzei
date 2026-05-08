@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import { CLOUDFRONT_URL } from "@/constants/cloudfront";
 import RsvpForm from "./RsvpForm";
+import Image from "next/image";
 
 type PartyMember = { name: string; role?: string };
 type PartySection = { title: string; members: PartyMember[] };
@@ -323,10 +325,13 @@ export default function Home() {
                         width="100%"
                         height="100%"
                       >
-                        <img
-                          src="/images/the-couple-hero.jpg"
+                        <Image
+                          src={`${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`}
                           alt="The Couple"
                           className="anim-zoom"
+                          width={500}
+                          height={685}
+                          loading="eager"
                         />
                       </foreignObject>
                     </svg>
@@ -409,7 +414,12 @@ export default function Home() {
                     width="100%"
                     height="100%"
                   >
-                    <img src="/images/the-couple.jpg" alt="The Couple" />
+                    <Image
+                      src={`${CLOUDFRONT_URL}/2a3d1317-748b-4b75-ad77-db817fd91d1b.jpg`}
+                      alt="The Couple"
+                      width={624}
+                      height={456}
+                    />
                   </foreignObject>
                 </svg>
                 <img
@@ -717,7 +727,7 @@ export default function Home() {
       <section
         id="wedding-gifts"
         className="bg-holder fade-in-section"
-        data-bg-image="/images/bg-wedding-gifts.jpg"
+        data-bg-image={`${CLOUDFRONT_URL}/eff75bd5-5d00-46af-aba9-78c5f7f97070.jpg`}
       >
         <div className="container">
           <div className="row align-items-center justify-content-center justify-content-lg-start">
