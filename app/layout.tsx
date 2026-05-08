@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import ScrollToTop from "./ScrollToTop";
-import FadeInOnScroll from "./FadeInOnScroll";
+import ScrollToTop from "@/components/ScrollToTop";
+import FadeInOnScroll from "@/components/FadeInOnScroll";
 
 const title = "Christian & Lyn Zei's Wedding — June 20, 2026 in Olongapo";
 const description =
@@ -60,12 +60,6 @@ export default function RootLayout({
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
   const enableGA = process.env.NEXT_PUBLIC_NODE_ENV === "production" && !!gaId;
-
-  console.log({
-    gaId,
-    enableGA,
-    environment: process.env.NEXT_PUBLIC_NODE_ENV,
-  });
 
   return (
     <html lang="en" className="w-100">
