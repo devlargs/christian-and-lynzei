@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Christian & Lynzei's Wedding
+
+Wedding invitation site for Christian & Lynzei — June 20, 2026 at San Roque Chapel, Olongapo City.
+
+Built with Next.js (App Router) and Bootstrap.
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — start the dev server with HMR
+- `npm run build` — production build
+- `npm start` — run the production build
+- `npm run lint` — run ESLint
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                    App Router pages and layout
+  layout.tsx            Root layout — metadata, fonts, global head tags
+  page.tsx              Single-page invitation (hero, couple, party, gallery, RSVP, gifts)
+  RsvpForm.tsx          RSVP form (client component)
+  ScrollToTop.tsx       Scroll-to-top button (client component)
+  FadeInOnScroll.tsx    IntersectionObserver-based fade-in (client component)
+constants/
+  cloudfront.ts         CloudFront base URL + photo gallery filename list
+public/
+  css/style.min.css     Compiled Bootstrap + theme styles
+  js/script.min.js      Vendor scripts (carousel, lightbox, bg-holder, etc.)
+  img/                  Static UI assets (logos, shapes, favicons)
+  images/               Photos served locally (legacy — most photos now on CloudFront)
+next.config.ts          Image domains, CSP + security headers, source maps
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable                   | Purpose                                                                      |
+| -------------------------- | ---------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`     | Absolute production URL — used for `metadataBase`, OG tags, canonical links. |
+| `NEXT_PUBLIC_VERCEL_URL`   | Auto-injected on Vercel; used as a fallback for `metadataBase`.              |
 
-## Deploy on Vercel
+Set `NEXT_PUBLIC_SITE_URL` to your production domain (e.g. `https://christianlynzeiweds.com`) before deploying so social previews and OG images resolve to absolute URLs.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Photos are hosted on CloudFront at the base URL defined in `constants/cloudfront.ts`. To add new gallery photos, append the filename to `PHOTO_GALLERY_IMAGES` in that file. The CloudFront domain is allowlisted in `next.config.ts` under `images.domains`, so all `<Image>` components route through the Next.js image optimizer (WebP/AVIF, long-cached).
+
+## Performance & Accessibility Notes
+
+- Google Fonts are preconnected and loaded directly in `<head>` (not via `@import`) to avoid render-blocking chained requests.
+- The hero image uses `priority` on `next/image` for optimal LCP.
+- The page exposes a `<main id="main">` landmark and the gallery anchors carry `aria-label` so screen readers announce them with discernible names.
+- Strict-ish CSP plus `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy` are set in `next.config.ts`.
+
+## Deploy
+
+Deploy on [Vercel](https://vercel.com/new) — zero config. Make sure to set `NEXT_PUBLIC_SITE_URL` in the project's environment variables.
