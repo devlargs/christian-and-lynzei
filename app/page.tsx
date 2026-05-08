@@ -276,6 +276,7 @@ export default function Home() {
       </header>
       {/* Header End */}
 
+      <main id="main">
       <span className="spacer d-block w-100"></span>
 
       {/* Hero */}
@@ -828,6 +829,7 @@ export default function Home() {
           className="shape-wave shape-wave-xs d-none d-lg-block end-0 mb-5 position-absolute top-50 translate-middle-y z-1"
         />
       </section>
+      </main>
 
       <footer className="site-footer text-center py-4 border-top">
         <p className="m-0 text-body-secondary">
