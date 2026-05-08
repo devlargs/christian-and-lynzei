@@ -624,7 +624,12 @@ export default function Home() {
                     width="100%"
                     height="100%"
                   >
-                    <img src="/images/wedding-party-1.jpg" alt="The Bride" />
+                    <Image
+                      src={`${CLOUDFRONT_URL}/af5efb8b-0ad6-4027-b769-7b6910bba505.jpg`}
+                      alt="The Bride"
+                      width={624}
+                      height={456}
+                    />
                   </foreignObject>
                 </svg>
                 <img
@@ -667,7 +672,12 @@ export default function Home() {
                     width="100%"
                     height="100%"
                   >
-                    <img src="/images/wedding-party-2.jpg" alt="The Groom" />
+                    <Image
+                      src={`${CLOUDFRONT_URL}/0b122d33-d43a-41b3-b320-d1750de6a662.jpg`}
+                      alt="The Groom"
+                      width={624}
+                      height={456}
+                    />
                   </foreignObject>
                 </svg>
               </div>
