@@ -7,11 +7,7 @@ const title = "Christian & Lynzei's Wedding — June 20, 2026 in Olongapo";
 const description =
   "Join us in celebrating the wedding of Christian & Lynzei on Saturday, June 20, 2026 at San Roque Chapel, Olongapo City. RSVP today!";
 
-const rawSiteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : "http://localhost:3000");
+const rawSiteUrl = "https://christianlynzeiweds.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(rawSiteUrl),
