@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ScrollToTop from "./ScrollToTop";
 import FadeInOnScroll from "./FadeInOnScroll";
-import { CLOUDFRONT_URL } from "@/constants/cloudfront";
 
 const title = "Christian & Lynzei's Wedding — June 20, 2026 in Olongapo";
 const description =
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`,
+        url: "/img/og.jpg",
         width: 1200,
         height: 630,
         alt: "Christian & Lynzei",
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [`${CLOUDFRONT_URL}/31b59af9-73be-447f-b21d-70ce064a1e69.jpg`],
+    images: ["/img/og.jpg"],
   },
 };
 
