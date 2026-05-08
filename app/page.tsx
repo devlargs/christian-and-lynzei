@@ -718,15 +718,16 @@ export default function Home() {
           </div>
 
           <div className="row gallery-grid">
-            {PHOTO_GALLERY_IMAGES.map((file) => {
+            {PHOTO_GALLERY_IMAGES.map((file, i) => {
               const url = `${CLOUDFRONT_URL}/${file}`;
+              const label = `Open photo ${i + 1} of ${PHOTO_GALLERY_IMAGES.length} in gallery`;
               return (
                 <div key={file} className="col-6 col-lg-3 mb-4">
                   <figure>
-                    <a href={url} data-gall="photos">
+                    <a href={url} data-gall="photos" aria-label={label}>
                       <Image
                         src={url}
-                        alt=""
+                        alt={`Wedding photo ${i + 1}`}
                         width={800}
                         height={800}
                         sizes="(min-width: 992px) 25vw, 50vw"
