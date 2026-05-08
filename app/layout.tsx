@@ -3,9 +3,9 @@ import Script from "next/script";
 import ScrollToTop from "./ScrollToTop";
 import FadeInOnScroll from "./FadeInOnScroll";
 
-const title = "Christian & Lynzei's Wedding — June 20, 2026 in Olongapo";
+const title = "Christian & Lyn Zei's Wedding — June 20, 2026 in Olongapo";
 const description =
-  "Join us in celebrating the wedding of Christian & Lynzei on Saturday, June 20, 2026 at San Roque Chapel, Olongapo City. RSVP today!";
+  "Join us in celebrating the wedding of Christian & Lyn Zei on Saturday, June 20, 2026 at San Roque Chapel, Olongapo City. RSVP today!";
 
 const rawSiteUrl = "https://christianlynzeiweds.com";
 
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   title,
   description,
   keywords: [
-    "Christian and Lynzei",
+    "Christian and Lyn Zei",
     "wedding",
     "June 20 2026",
     "San Roque Chapel",
     "Olongapo",
   ],
-  authors: [{ name: "Christian & Lynzei" }],
+  authors: [{ name: "Christian & Lyn Zei" }],
   icons: {
     icon: [
       { url: "/img/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Christian & Lynzei's Wedding",
+    siteName: "Christian & Lyn Zei's Wedding",
     title,
     description,
     url: "/",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/img/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Christian & Lynzei",
+        alt: "Christian & Lyn Zei",
         type: "image/jpeg",
       },
     ],

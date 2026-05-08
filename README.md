@@ -1,6 +1,6 @@
-# Christian & Lynzei's Wedding
+# Christian & Lyn Zei's Wedding
 
-Wedding invitation site for Christian & Lynzei — June 20, 2026 at San Roque Chapel, Olongapo City.
+Wedding invitation site for Christian & Lyn Zei's — June 20, 2026 at San Roque Chapel, Olongapo City.
 
 Built with Next.js (App Router) and Bootstrap.
 
@@ -43,10 +43,10 @@ next.config.ts          Image domains, CSP + security headers, source maps
 
 ## Environment Variables
 
-| Variable                   | Purpose                                                                      |
-| -------------------------- | ---------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`     | Absolute production URL — used for `metadataBase`, OG tags, canonical links. |
-| `NEXT_PUBLIC_VERCEL_URL`   | Auto-injected on Vercel; used as a fallback for `metadataBase`.              |
+| Variable                 | Purpose                                                                      |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`   | Absolute production URL — used for `metadataBase`, OG tags, canonical links. |
+| `NEXT_PUBLIC_VERCEL_URL` | Auto-injected on Vercel; used as a fallback for `metadataBase`.              |
 
 Set `NEXT_PUBLIC_SITE_URL` to your production domain (e.g. `https://christianlynzeiweds.com`) before deploying so social previews and OG images resolve to absolute URLs.
 

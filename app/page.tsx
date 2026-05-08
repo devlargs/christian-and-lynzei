@@ -286,7 +286,7 @@ export default function Home() {
               <div className="col-lg-6 mb-5 mb-lg-0 position-relative text-center z-2">
                 <div className="border border-2 border-primary d-inline-block mb-4 px-4 py-2">
                   <h2 className="font-alt fs-1 m-0 text-primary">
-                    Christian & Lynzei
+                    Christian & Lyn Zei
                   </h2>
                 </div>
                 <h3 className="fs-1 font-alt mb-3">
@@ -386,7 +386,7 @@ export default function Home() {
 
             <div className="row align-items-center gx-xl-5 justify-content-center">
               <div className="col-10 col-md-8 col-lg-5 col-xl-3 mb-5 mb-xl-0 text-center">
-                <h3 className="font-alt">Lynzei Santos</h3>
+                <h3 className="font-alt">Lyn Zei Santos</h3>
                 <p className="text-body-secondary">
                   I am just crazy about Christian. He has a truly amazing heart.
                 </p>
@@ -446,8 +446,8 @@ export default function Home() {
               <div className="col-10 col-md-8 col-lg-5 col-xl-3 text-center">
                 <h3 className="font-alt">Christian Ray Tacazon</h3>
                 <p className="text-body-secondary">
-                  I&apos;m so excited to spend the rest of my life with You,
-                  Lynzei.
+                  I&apos;m so excited to spend the rest of my life with You, Lyn
+                  Zei.
                 </p>
               </div>
             </div>
@@ -649,7 +649,7 @@ export default function Home() {
                   />
                 </div>
 
-                <h3 className="display-5 font-alt">Lynzei Santos</h3>
+                <h3 className="display-5 font-alt">Lyn Zei Santos</h3>
                 <p className="fs-5 fw-bold ls-2 mb-5 text-primary text-uppercase">
                   The Bride
                 </p>
