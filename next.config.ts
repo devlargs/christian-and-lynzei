@@ -16,7 +16,13 @@ const csp = [
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
   images: {
-    domains: ["d2kvi1v334cucb.cloudfront.net"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "d2kvi1v334cucb.cloudfront.net",
+        pathname: "/zz-tacs-wedding/**",
+      },
+    ],
   },
   async headers() {
     return [
