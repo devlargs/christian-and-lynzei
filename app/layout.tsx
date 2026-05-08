@@ -58,6 +58,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+  const enableGA = process.env.NEXT_PUBLIC_NODE_ENV === "production" && !!gaId;
+
   return (
     <html lang="en" className="w-100">
       <head>
@@ -196,6 +199,20 @@ export default function RootLayout({
         {children}
         <ScrollToTop />
         <FadeInOnScroll />
+        {enableGA && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `}</Script>
+          </>
+        )}
         <Script src="/js/script.min.js" strategy="afterInteractive" />
         <Script id="nav-close-on-click" strategy="afterInteractive">{`
           document.querySelectorAll('#navbar .nav-link').forEach(function (link) {
