@@ -838,7 +838,8 @@ export default function Home() {
             href="https://ralphlargo.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary fw-bold text-decoration-none"
+            className="fw-bold text-decoration-underline"
+            style={{ color: "#7A3F23" }}
           >
             Largs
           </a>
