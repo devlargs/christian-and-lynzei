@@ -9,7 +9,7 @@ export default function RsvpSection() {
           <div className="col-12 position-relative text-center z-2">
             <h2 className="font-alt fs-1 mb-3">Come and Celebrate with Us</h2>
             <p className="fs-5 mb-4 text-body-secondary">
-              If you have only one smile in you give it to the people you love.
+              While we would love to celebrate with everyone, our guestlist is strictly limited to invited guests only. We request no additional plus-ones or unlisted companions.
             </p>
             <span className="divider divider-arrow"></span>
           </div>
