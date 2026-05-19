@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[+\d][\d\s\-()]{6,19}$/;
 
 export async function POST(request: Request) {
-  let body: { name?: unknown; email?: unknown };
+  let body: { name?: unknown; phone?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   }
 
   const name = typeof body.name === "string" ? body.name.trim() : "";
-  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
 
   if (!name || name.length > 100) {
     return NextResponse.json(
@@ -21,9 +21,9 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
-  if (!EMAIL_RE.test(email)) {
+  if (!PHONE_RE.test(phone)) {
     return NextResponse.json(
-      { ok: false, error: "Please provide a valid email address." },
+      { ok: false, error: "Please provide a valid phone number." },
       { status: 400 },
     );
   }
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
       parent: { database_id: databaseId },
       properties: {
         Name: { title: [{ text: { content: name } }] },
-        Email: { email },
+        Phone: { phone_number: phone },
         Date: { date: { start: today } },
       },
     }),

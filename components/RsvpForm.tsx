@@ -6,7 +6,7 @@ type Status = "idle" | "loading" | "success" | "error";
 
 export default function RsvpForm() {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -19,14 +19,14 @@ export default function RsvpForm() {
       const res = await fetch("/api/rsvp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name, phone }),
       });
       const data: { ok: boolean; error?: string } = await res.json();
 
       if (res.ok && data.ok) {
         setStatus("success");
         setName("");
-        setEmail("");
+        setPhone("");
       } else {
         setStatus("error");
         setErrorMessage(data.error || "Something went wrong. Please try again.");
@@ -62,14 +62,18 @@ export default function RsvpForm() {
         </div>
         <div className="col-12 mb-3 position-relative">
           <input
-            type="email"
-            id="guest-email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="tel"
+            id="guest-phone"
+            inputMode="tel"
+            maxLength={20}
+            value={phone}
+            onChange={(e) =>
+              setPhone(e.target.value.replace(/[^\d+\s\-()]/g, ""))
+            }
             onKeyDown={onEnterKey}
             disabled={status === "loading"}
             className="border-0 border-bottom p-3 w-100"
-            placeholder="Your Email Address"
+            placeholder="Your Phone Number"
           />
         </div>
         <div className="col-12">
