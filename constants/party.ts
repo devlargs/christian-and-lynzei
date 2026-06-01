@@ -62,7 +62,7 @@ export const ADDITIONAL_SECTIONS: PartySection[] = [
   },
   {
     title: "Cord Sponsors",
-    members: [{ name: "Mark Alglo Villanueva" }, { name: "Erica Mae Santos" }],
+    members: [{ name: "Christian Jay Paulo Sotto" }, { name: "Erica Mae Santos" }],
   },
   {
     title: "Ring Bearer",
